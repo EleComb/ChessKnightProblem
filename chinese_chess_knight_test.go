@@ -14,16 +14,22 @@ func TestChineseChessKnight(t *testing.T) {
 		source      *Node
 		destination *Node
 	}{
-		//{
-		//	&Node{0, 7, 0},
-		//	&Node{7, 0, 0},
-		//},
+		{
+			&Node{0, 7, 0},
+			&Node{7, 0, 0},
+		},
 		{
 			&Node{4, 5, 0},
 			&Node{1, 1, 0},
 		},
 	}{
-		path, length := BFS(unit.source, unit.destination, 10, 9)
-		fmt.Println(path, length)
+		//length := BFS(unit.source, unit.destination, 10, 9)
+		//fmt.Println(length)
+		path, length := KnightFindPath(unit.source, unit.destination, 10, 9)
+		fmt.Printf("the knight travel %v times\n", length)
+		for _, v := range path {
+			fmt.Printf("the knight %v time tour point is (%v, %v)\n", v.dist, v.x, v.y)
+		}
+		fmt.Println()
 	}
 }

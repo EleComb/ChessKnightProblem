@@ -1,10 +1,5 @@
 package ChessKnightProblem
 
-import (
-	"fmt"
-	"reflect"
-)
-
 type Node struct {
 	x    int
 	y    int
@@ -40,18 +35,6 @@ func (n *Node) hashCode() int {
 	result = 31 * result + n.y
 	result = 31 * result + n.dist
 	return result
-}
-
-func (n *Node) reflect() {
-	val := reflect.ValueOf(n).Elem()
-
-	for i := 0; i < val.NumField(); i++ {
-		valueField := val.Field(i)
-		typeField := val.Type().Field(i)
-		tag := typeField.Tag
-
-		fmt.Printf("Field Name: %s,\t Field Value: %v,\t Tag Value: %s\n", typeField.Name, valueField.Interface(), tag.Get("tag_name"))
-	}
 }
 
 
